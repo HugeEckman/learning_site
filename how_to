@@ -1,0 +1,95 @@
+1. create venv
+    python -m venv .venv (.venv - name of folder with virtual environment)
+
+2. activate venv 
+    source .venv/bin/activate 
+    or
+    . .venv/bin/activate 
+
+3. create settings folder
+    python -m django startproject settings
+
+    now we have next directory structure:
+    .
+    ├── Makefile
+    ├── requirements.txt
+    ├── settings
+    │   ├── manage.py
+    │   └── settings
+    │       ├── asgi.py
+    │       ├── __init__.py
+    │       ├── settings.py
+    │       ├── urls.py
+    │       └── wsgi.py
+    └── how_to
+
+4. move settings/settings directory and manage.py into root directory
+
+    get next directory structure:
+    
+    .
+    ├── Makefile
+    ├── manage.py
+    ├── requirements.txt
+    ├── settings
+    │   ├── asgi.py
+    │   ├── __init__.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    └── how_to
+
+5. create new app
+
+    python manage.py startapp <project_name>
+
+6. register new project in to settings.py -> INSTALLED_APPS
+
+7. add models classes in to model.py file in project folder
+
+    class Category(models.Model):
+        name = models.CharField(max_length=50, unique=True)
+
+
+    class Course(models.Model):
+        name = models.CharField(max_length=50)
+        # if we deleted Category? what will be with Course
+            # Cascade - category will delete with course
+            # Protect - we should delete course at first, and after should delete category
+            # Null - set category_id to null (accept only for nullable fields)
+        category_id = models.OneToOneField(Category, null=True, on_delete=models.SET_NULL)
+        start_date = models.DateTimeField()
+        finish_date = models.DateTimeField()
+        
+8. create migration (in <project_name>/migrations must appear .py file with db tables descriptions)
+
+    python manage.py makemigrations
+
+9. apply migrations (new tables will create in database)
+
+    python manage.py migrate
+
+10. from docker-compose.yaml up database
+
+    docker ps - make sure that there is no containers in docker
+
+    docker-compose up -d pg - up and start new container (pg - service name from docker-compose.yaml)
+
+11. in settings.py change db settings from sqlite to postgres
+
+12. apply migrations to postgres db
+
+    python manage.py migrate    
+
+13. create superuser for working with admin dashboard
+
+    python manage.py createsuperuser
+
+    >> Username (leave blank to use 'user'): admin
+    >> Password: admin
+
+14. register all models to <project_name>/admin.py
+
+    from .models import *
+
+    admin.site.register(<model_class_name>)   

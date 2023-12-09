@@ -12,3 +12,6 @@ migrate:
 
 help:
 	python manage.py --help
+
+createsuperuser:
+	python manage.py createsuperuser
