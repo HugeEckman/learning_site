@@ -2,4 +2,5 @@
 __pycache__
 db.sqlite3
 .idea/
-way
+how_to
+migrations/

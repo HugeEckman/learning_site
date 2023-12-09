@@ -9,3 +9,6 @@ makemigrations:
 
 migrate:
 	python manage.py migrate
+
+help:
+	python manage.py --help
