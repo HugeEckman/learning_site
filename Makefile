@@ -15,3 +15,10 @@ help:
 
 createsuperuser:
 	python manage.py createsuperuser
+
+fill_db:
+	python manage.py fill_db
+
+unfill_db:
+	python manage.py unfill_db
+

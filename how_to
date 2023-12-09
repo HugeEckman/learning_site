@@ -75,6 +75,8 @@
 
     docker-compose up -d pg - up and start new container (pg - service name from docker-compose.yaml)
 
+    docker rm -f $(docker ps -aq) - for deleting all containers
+
 11. in settings.py change db settings from sqlite to postgres
 
 12. apply migrations to postgres db
@@ -92,4 +94,31 @@
 
     from .models import *
 
-    admin.site.register(<model_class_name>)   
+    admin.site.register(<model_class_name>)  
+
+15. in <project_name> folder create package (folder with __init__.py file) called management
+    in management folder create another package called commands
+    in this package create .py file with command you need
+
+    your <project_name> folder should have next structure 
+        (command tree ./learning_app/ -I __pycache__ (-I flag, specified ignorable directories)):
+
+    ./learning_app/
+    ├── admin.py
+    ├── apps.py
+    ├── __init__.py
+    ├── management
+    │   ├── commands
+    │   │   ├── fill_db.py
+    │   │   └── __init__.py
+    │   └── __init__.py
+    ├── migrations
+    │   ├── 0001_initial.py
+    │   ├── 0002_delete_role_delete_schedule.py
+    │   └── __init__.py
+    ├── models.py
+    ├── tests.py
+    └── views.py
+
+16. create data base on models
+
