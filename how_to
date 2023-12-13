@@ -101,7 +101,7 @@
     in this package create .py file with command you need
 
     your <project_name> folder should have next structure 
-        (command tree ./learning_app/ -I __pycache__ (-I flag, specified ignorable directories)):
+        (command: tree ./learning_app/ -I __pycache__ (-I flag, specified ignorable directories)):
 
     ./learning_app/
     ├── admin.py
@@ -120,5 +120,50 @@
     ├── tests.py
     └── views.py
 
-16. create data base on models
+16. create database on models
+
+17. if container with db will dropped, we should execute next commands:
+
+    docker-compose up -d pg - up container with postgres db    
+    python manage.py makemigrations - create migration
+    python manage.py migrate - apply migration
+
+18. create template directory
+
+    your <project_name> folder should have next structure:
+
+    .
+    ├── docker-compose.yaml
+    ├── how_to
+    ├── learning_app
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── __init__.py
+    │   ├── management
+    │   │   ├── commands
+    │   │   │   ├── fill_db.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── unfill_db.py
+    │   │   └── __init__.py
+    │   ├── migrations
+    │   │   ├── 0001_initial.py
+    │   │   └── __init__.py
+    │   ├── models.py
+    │   ├── template
+    │   │   └── learning_app
+    │   ├── tests.py
+    │   └── views.py
+    ├── Makefile
+    ├── manage.py
+    ├── README.md
+    ├── requirements.txt
+    └── settings
+        ├── asgi.py
+        ├── __init__.py
+        ├── settings.py
+        ├── urls.py
+        └── wsgi.py
+
+19. in <project_name>/views.py file create view classes for see list of courses/single course,
+    create course, update course, delete course
 
