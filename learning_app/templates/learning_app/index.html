@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+<!-- {% load static %} -->
+
+{% block title %}
+    Learning app
+{% endblock %}
+
+{% block body %}
+
+<div>
+    <h1>Welcome to Learning app!</h1>
+
+    <p>
+      You can find your little friends here.
+    </p>
+
+    <div>
+        <a href="{% url 'learning_app:course_list'%}">Courses</a>
+    </div>
+    
+</div>
+
+{% endblock %}

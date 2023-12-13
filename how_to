@@ -169,3 +169,14 @@
 
 20. in <project_name> create urls.py file, this file was included in settings/url.py file
 
+21. create base template file templates/base.html
+
+22. in settings/settings.py -> TEMPLATES -> DIRS type:
+
+    os.path.join(BASE_DIR, 'templates')
+
+    for access to template directory
+
+23. for support static files in settings/settings.py after STATIC_URL variable need to type:
+
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]

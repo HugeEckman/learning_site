@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from models import Course
+from .models import Course
 
+def index_view(request):
+    return render(request, 'learning_app/index.html')
 
 class CourseListView(ListView):
     model = Course
-    template_name = 'learning_app/course_list.html' 
+    template_name = 'learning_app/course_list.html'
 
 
 class CourseDetailView(DetailView):

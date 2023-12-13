@@ -7,9 +7,9 @@ class Category(models.Model):
 
 class Course(models.Model):
     name = models.CharField(max_length=50)
-    category = models.OneToOneField(Category, null=True, on_delete=models.SET_NULL)
-    start_date = models.DateTimeField()
-    finish_date = models.DateTimeField()
+    category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
+    start_date = models.DateField()
+    finish_date = models.DateField()
 
 
 class Teacher(models.Model):

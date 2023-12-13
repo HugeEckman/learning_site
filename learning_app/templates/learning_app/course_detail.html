@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Course {{object.id}}
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h2>{{object.name}}</h2>
+        
+        <p>Start date: {{object.start_date}}</p>
+        <p>Finish date: {{object.finish_date}}</p>
+        <p>
+            <a href="{% url 'learning_app:course_update' pk=course.pk %}">Update</a>
+        </p>
+
+        <p>
+            <a href="{% url 'learning_app:course_delete' pk=course.pk %}">Delete</a>
+        </p>
+
+        <a href="{% url 'learning_app:course_list' %}">To course list</a>
+    </div>
+
+{% endblock %}
