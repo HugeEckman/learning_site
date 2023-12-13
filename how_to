@@ -167,3 +167,5 @@
 19. in <project_name>/views.py file create view classes for see list of courses/single course,
     create course, update course, delete course
 
+20. in <project_name> create urls.py file, this file was included in settings/url.py file
+
