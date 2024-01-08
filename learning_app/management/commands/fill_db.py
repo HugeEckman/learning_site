@@ -18,6 +18,28 @@ class Command(BaseCommand):
         cat3 = Category.objects.create(name='Финансы')
         cat4 = Category.objects.create(name='Управление')
 
+        # Create teachers
+
+        teach1 = Teacher.objects.create(first_name='Иван',
+                                        last_name='Иванов')
+        
+        teach2 = Teacher.objects.create(first_name='Петр',
+                                        last_name='Петров')
+        
+        teach3 = Teacher.objects.create(first_name='Семён',
+                                        last_name='Семёнов')
+        
+        teach4 = Teacher.objects.create(first_name='Анна',
+                                        last_name='Аничкина')
+
+        # Create catalog
+
+        # catalog1 = Catalog.objects.create(name='main_catalog')
+        # catalog.courses.
+        # Catalog.objects.create(course=crs2)
+        # Catalog.objects.create(course=crs3)
+        # Catalog.objects.create(course=crs4)
+
         # Create courses
 
         crs1 = Course.objects.create(name='Программирование на Python',
@@ -39,31 +61,6 @@ class Command(BaseCommand):
                                      category=cat4,
                                      start_date=date(2024,1,15),
                                      finish_date=date(2024,6,15))
-
-        # Create teachers
-
-        teach1 = Teacher.objects.create(first_name='Иван',
-                                        last_name='Иванов',
-                                        course=crs1)
-        
-        teach2 = Teacher.objects.create(first_name='Петр',
-                                        last_name='Петров',
-                                        course=crs2)
-        
-        teach3 = Teacher.objects.create(first_name='Иван',
-                                        last_name='Иванов',
-                                        course=crs3)
-        
-        teach4 = Teacher.objects.create(first_name='Петр',
-                                        last_name='Петров',
-                                        course=crs4)
-
-        # Create catalog
-
-        Catalog.objects.create(course=crs1)
-        Catalog.objects.create(course=crs2)
-        Catalog.objects.create(course=crs3)
-        Catalog.objects.create(course=crs4)
 
         # Create lessons
 
