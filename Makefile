@@ -22,3 +22,8 @@ fill_db:
 unfill_db:
 	python manage.py unfill_db
 
+db_init:
+	make migrate
+	make fill_db
+	
+

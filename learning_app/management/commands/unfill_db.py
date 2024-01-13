@@ -10,7 +10,5 @@ class Command(BaseCommand):
     def handle(self, *args: Any, **options: Any) -> str | None:
         Category.objects.all().delete()
         Course.objects.all().delete()
-        Teacher.objects.all().delete()
-        # Catalog.objects.all().delete()
         Lesson.objects.all().delete()
 

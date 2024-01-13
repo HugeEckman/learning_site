@@ -18,19 +18,29 @@ class Command(BaseCommand):
         cat3 = Category.objects.create(name='Финансы')
         cat4 = Category.objects.create(name='Управление')
 
+        # Create role
+
+        role1 = Role.objects.create(name='admin')
+        role2 = Role.objects.create(name='student')
+        role3 = Role.objects.create(name='teacher')
+
         # Create teachers
 
-        teach1 = Teacher.objects.create(first_name='Иван',
-                                        last_name='Иванов')
+        teach1 = User.objects.create(first_name='Иван',
+                                     last_name='Иванов',
+                                     role=role3)
         
-        teach2 = Teacher.objects.create(first_name='Петр',
-                                        last_name='Петров')
+        teach2 = User.objects.create(first_name='Петр',
+                                     last_name='Петров',
+                                     role=role3)
         
-        teach3 = Teacher.objects.create(first_name='Семён',
-                                        last_name='Семёнов')
+        teach3 = User.objects.create(first_name='Семён',
+                                     last_name='Семёнов',
+                                     role=role3)
         
-        teach4 = Teacher.objects.create(first_name='Анна',
-                                        last_name='Аничкина')
+        teach4 = User.objects.create(first_name='Анна',
+                                     last_name='Аничкина',
+                                     role=role3)
 
         # Create catalog
 
@@ -83,11 +93,3 @@ class Command(BaseCommand):
                                    goals='Цели урока 1',
                                    course=crs4,
                                    teacher=teach4)
-
-        # self.stdout.write(
-        #     self.style.SUCCESS('Success')
-        # )
-
-        # self.stdout.write(
-        #     self.style.ERROR('Error')
-        # )
