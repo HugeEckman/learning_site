@@ -25,5 +25,5 @@ unfill_db:
 db_init:
 	make migrate
 	make fill_db
-	
+
 
