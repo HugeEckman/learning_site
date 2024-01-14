@@ -1,19 +1,31 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Course, Category
+from .models import Course, Category, Lesson, User
 
 def index_view(request):
     return render(request, 'learning_app/index.html')
 
+# Courses
+
 class CourseListView(ListView):
     model = Course
-    template_name = 'learning_app/course_list.html'
+    template_name = 'learning_app/course_list.html' 
 
 
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'learning_app/course_detail.html' 
+
+    # def get(self, request, *args, **kwargs):
+    #     self.category_id = request.GET.get('category_id', None)
+    #     return super().get(request, *args, **kwargs)
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        # quryset = queryset.filter(lesson__course__id=self.id)
+        queryset = queryset.select_related('category')
+        return queryset
 
 
 class CourseCreateView(CreateView):
@@ -59,5 +71,30 @@ class CategoryDeleteView(DeleteView):
     model = Category
     success_url = reverse_lazy('learning_app:category_list')
 
+# Lessons
 
+class LessonListView(ListView):
+    model = Lesson
+    template_name = 'learning_app/lessons_list'
+
+class LessonDetailView(DetailView):
+    model = Lesson
+    template_name = 'learning_app/lessons_detail.html' 
+
+
+class LessonCreateView(CreateView):
+    model = Lesson
+    fields = '__all__'
+    success_url = reverse_lazy('learning_app:lessons_list')
+
+
+class LessonUpdateView(UpdateView):
+    model = Lesson
+    fields = '__all__'
+    success_url = reverse_lazy('learning_app:lessons_list')
+
+
+class LessonDeleteView(DeleteView):
+    model = Lesson
+    success_url = reverse_lazy('learning_app:lessons_list')
 

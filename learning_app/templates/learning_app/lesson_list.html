@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Lessons
+{% endblock %}
+
+{% block body %}
+ <h1>Lessons list</h1>
+
+ {% for lesson in object.lesson %}
+    <h2>{{ lesson.title }}</h2>
+   
+ {% endfor  %}
+
+
+
+{% endblock %}

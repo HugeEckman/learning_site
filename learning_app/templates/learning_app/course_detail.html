@@ -7,9 +7,23 @@
 {% block body %}
     <div>
         <h2>{{object.name}}</h2>
-        
+        <p>Category: {{object.category.name}}</p>
         <p>Start date: {{object.start_date}}</p>
         <p>Finish date: {{object.finish_date}}</p>
+
+
+        <!-- {%for val in object.get_lessons%} 
+            <h1>{{val.title}}</h1>
+        {%endfor%} -->
+
+        <!-- <p>
+            <a href="{% url 'learning_app:lesson_list' pk=object.pk %}">Lessons</a>
+        </p> -->
+
+        <!-- {%for val in queryset%} 
+            <h1>{{val.title}}</h1>
+        {%endfor%} -->
+
         <p>
             <a href="{% url 'learning_app:course_update' pk=course.pk %}">Update</a>
         </p>

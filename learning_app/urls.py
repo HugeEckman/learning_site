@@ -6,6 +6,7 @@ app_name = 'learning_app'
 
 urlpatterns = [
     path('', views.index_view, name='index'),
+
     path('course/list/', views.CourseListView.as_view(), name='course_list'),
     path('course/<int:pk>/', views.CourseDetailView.as_view(), name='course_detail'),
     path('course/create/', views.CourseCreateView.as_view(), name='course_create'),
@@ -17,4 +18,10 @@ urlpatterns = [
     path('category/create/', views.CategoryCreateView.as_view(), name='category_create'),
     path('category/update/<int:pk>/', views.CategoryUpdateView.as_view(), name='category_update'),
     path('category/delete/<int:pk>/', views.CategoryDeleteView.as_view(), name='category_delete'),
+
+    path('lesson/list/<int:pk>', views.LessonListView.as_view(), name='lesson_list'),
+    path('lesson/<int:pk>/', views.LessonDetailView.as_view(), name='lesson_detail'),
+    path('lesson/create/', views.LessonCreateView.as_view(), name='lesson_create'),
+    path('lesson/update/<int:pk>/', views.LessonUpdateView.as_view(), name='lesson_update'),
+    path('lesson/delete/<int:pk>/', views.LessonDeleteView.as_view(), name='lesson_delete'),
 ]

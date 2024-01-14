@@ -41,15 +41,7 @@ class Command(BaseCommand):
         teach4 = User.objects.create(first_name='Анна',
                                      last_name='Аничкина',
                                      role=role3)
-
-        # Create catalog
-
-        # catalog1 = Catalog.objects.create(name='main_catalog')
-        # catalog.courses.
-        # Catalog.objects.create(course=crs2)
-        # Catalog.objects.create(course=crs3)
-        # Catalog.objects.create(course=crs4)
-
+        
         # Create courses
 
         crs1 = Course.objects.create(name='Программирование на Python',
@@ -91,5 +83,25 @@ class Command(BaseCommand):
         
         l4 = Lesson.objects.create(title='IT управление. Урок 1',
                                    goals='Цели урока 1',
+                                   course=crs4,
+                                   teacher=teach4)
+        
+        l5 = Lesson.objects.create(title='Python. Урок 2',
+                                   goals='Цели урока 2',
+                                   course=crs1,
+                                   teacher=teach1)
+        
+        l6 = Lesson.objects.create(title='Графический дизайн. Урок 2',
+                                   goals='Цели урока 2',
+                                   course=crs2,
+                                   teacher=teach2)
+        
+        l7 = Lesson.objects.create(title='Фин. управление. Урок 2',
+                                   goals='Цели урока 2',
+                                   course=crs3,
+                                   teacher=teach3)
+        
+        l8 = Lesson.objects.create(title='IT управление. Урок 2',
+                                   goals='Цели урока 2',
                                    course=crs4,
                                    teacher=teach4)

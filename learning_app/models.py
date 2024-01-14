@@ -29,6 +29,14 @@ class Course(models.Model):
     start_date = models.DateField()
     finish_date = models.DateField()
 
+    # def get_lessons(self):
+    #     lessons = []
+    #     vars = Lesson.objects.filter(course_id=self.id)
+    #     for item in vars:
+    #         lessons.append(item.title)
+    #     # return lessons
+    #     return vars
+
     def __str__(self) -> str:
         return self.name
     
@@ -38,11 +46,9 @@ class Lesson(models.Model):
     goals = models.CharField(max_length=50)
     course = models.ForeignKey(Course, null=True, on_delete=models.SET_NULL)
     teacher = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
-
+    
     def __str__(self) -> str:
         return self.title
 
 
-# class Schedule(models.Model):
-#     pass
 
