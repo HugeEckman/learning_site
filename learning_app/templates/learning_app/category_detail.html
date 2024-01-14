@@ -1,1 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Category {{object.id}}
+{% endblock %}
+
+{% block body %}
+    
+<h2>{{object.name}}</h2>
         
+<p>
+    <a href="{% url 'learning_app:category_update' pk=category.pk %}">Update</a>
+</p>
+
+<p>
+    <a href="{% url 'learning_app:category_delete' pk=category.pk %}">Delete</a>
+</p>
+
+<a href="{% url 'learning_app:category_list' %}">To course list</a>
+
+{% endblock %}       

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Categories
+{% endblock %}
+
+{% block body %}
+ <h1>Category list</h1>
+
+ {% for category in category_list %}
+    <h2>{{ category.name }}</h2>
+
+    <p>
+        <a href="{% url 'learning_app:category_detail' pk=category.id %}">More</a>
+    </p>
+
+ {% endfor  %}
+
+    <div>
+        <p>
+            <a href="{% url 'learning_app:category_create' %}">Create category</a>
+        </p>
+    </div>
+
+    <div>
+      <p>
+        <a href="{% url 'learning_app:index' %}">To main page</a>
+      </p>
+    </div>
+
+{% endblock %}

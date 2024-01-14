@@ -11,5 +11,10 @@ urlpatterns = [
     path('course/create/', views.CourseCreateView.as_view(), name='course_create'),
     path('course/update/<int:pk>/', views.CourseUpdateView.as_view(), name='course_update'),
     path('course/delete/<int:pk>/', views.CourseDeleteView.as_view(), name='course_delete'),
-
+    
+    path('category/list/', views.CategoryListView.as_view(), name='category_list'),
+    path('category/<int:pk>/', views.CategoryDetailView.as_view(), name='category_detail'),
+    path('category/create/', views.CategoryCreateView.as_view(), name='category_create'),
+    path('category/update/<int:pk>/', views.CategoryUpdateView.as_view(), name='category_update'),
+    path('category/delete/<int:pk>/', views.CategoryDeleteView.as_view(), name='category_delete'),
 ]
