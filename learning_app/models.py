@@ -44,7 +44,7 @@ class Course(models.Model):
 class Lesson(models.Model):
     title = models.CharField(max_length=50)
     goals = models.CharField(max_length=50)
-    course = models.ManyToManyField(Course, null=True)
+    course = models.ForeignKey(Course, null=True, on_delete=models.SET_NULL)
     teacher = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     
     def __str__(self) -> str:
