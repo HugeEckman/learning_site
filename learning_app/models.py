@@ -29,14 +29,6 @@ class Course(models.Model):
     start_date = models.DateField()
     finish_date = models.DateField()
 
-    # def get_lessons(self):
-    #     lessons = []
-    #     vars = Lesson.objects.filter(course_id=self.id)
-    #     for item in vars:
-    #         lessons.append(item.title)
-    #     # return lessons
-    #     return vars
-
     def __str__(self) -> str:
         return self.name
     
