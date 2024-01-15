@@ -24,4 +24,10 @@ urlpatterns = [
     path('lesson/create/', views.LessonCreateView.as_view(), name='lesson_create'),
     path('lesson/update/<int:pk>/', views.LessonUpdateView.as_view(), name='lesson_update'),
     path('lesson/delete/<int:pk>/', views.LessonDeleteView.as_view(), name='lesson_delete'),
+
+    path('user/list/<int:pk>', views.UserListView.as_view(), name='user_list'),
+    path('user/<int:pk>/', views.UserDetailView.as_view(), name='user_detail'),
+    path('user/create/', views.UserCreateView.as_view(), name='user_create'),
+    path('user/update/<int:pk>/', views.UserUpdateView.as_view(), name='user_update'),
+    path('user/delete/<int:pk>/', views.UserDeleteView.as_view(), name='user_delete'),
 ]

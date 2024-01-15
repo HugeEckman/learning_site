@@ -25,6 +25,8 @@ class CourseDetailView(DetailView):
         queryset = super().get_queryset()
         # quryset = queryset.filter(lesson__course__id=self.id)
         queryset = queryset.select_related('category')
+
+        # queryset = queryset.prefetch_related('category')
         return queryset
 
 
@@ -98,3 +100,29 @@ class LessonDeleteView(DeleteView):
     model = Lesson
     success_url = reverse_lazy('learning_app:lessons_list')
 
+# Users
+
+class UserListView(ListView):
+    model = User
+    template_name = 'learning_app/user_list'
+
+class UserDetailView(DetailView):
+    model = User
+    template_name = 'learning_app/user_detail.html' 
+
+
+class UserCreateView(CreateView):
+    model = User
+    fields = '__all__'
+    success_url = reverse_lazy('learning_app:user_list')
+
+
+class UserUpdateView(UpdateView):
+    model = User
+    fields = '__all__'
+    success_url = reverse_lazy('learning_app:user_list')
+
+
+class UserDeleteView(DeleteView):
+    model = User
+    success_url = reverse_lazy('learning_app:user_list')
