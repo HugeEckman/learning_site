@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+<!-- {% load static %} -->
+
+{% block title %}
+    Contacts
+{% endblock %}
+
+{% block body %}
+
+    <div>
+        <p>
+             You can contact us to the next links:
+        </p>    
+    </div>
+    
+    <div>
+        <p>
+            <a href="{% url 'learning_app:index' %}">To main page</a>
+        </p>
+    </div>
+
+{% endblock %}

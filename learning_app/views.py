@@ -3,10 +3,16 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Course, Category, Lesson, User
 
+
 def index_view(request):
     return render(request, 'learning_app/index.html')
 
+
+def contact_view(request):
+    return render(request, 'learning_app/contacts.html')
+
 # Courses
+
 
 class CourseListView(ListView):
     model = Course
@@ -48,9 +54,11 @@ class CourseDeleteView(DeleteView):
 
 # Categories
 
+
 class CategoryListView(ListView):
     model = Category
     template_name = 'learning_app/category_list'
+
 
 class CategoryDetailView(DetailView):
     model = Category
@@ -75,9 +83,11 @@ class CategoryDeleteView(DeleteView):
 
 # Lessons
 
+
 class LessonListView(ListView):
     model = Lesson
     template_name = 'learning_app/lessons_list'
+
 
 class LessonDetailView(DetailView):
     model = Lesson
@@ -102,9 +112,11 @@ class LessonDeleteView(DeleteView):
 
 # Users
 
+
 class UserListView(ListView):
     model = User
     template_name = 'learning_app/user_list'
+
 
 class UserDetailView(DetailView):
     model = User

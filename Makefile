@@ -19,11 +19,12 @@ createsuperuser:
 fill_db:
 	python manage.py fill_db
 
-unfill_db:
+clear_db:
 	python manage.py unfill_db
 
 db_init:
-	make migrate
+	docker compose up -d pg
+	timeout 5 make migrate
 	make fill_db
 
 
