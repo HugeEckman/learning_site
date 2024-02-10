@@ -180,3 +180,31 @@
 23. for support static files in settings/settings.py after STATIC_URL variable need to type:
 
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+24. for sending letters with qieries:
+
+    install django_rq, wrapper under RQ library
+    install redis, rq works only with redis
+
+    settings -> EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+    settings -> EMAIL_FILE_PATH = "mail"  # change this to a proper location
+    settings -> RQ_QUEUES = {
+                    'default': {
+                        'HOST': 'localhost',
+                        'PORT': 6379,
+                        'DB': 0,
+                        "DEFAULT_TIMEOUT": 360,
+                    },
+                }
+
+    docker-compose.yaml ->  redis:
+                                image: redis:7
+                                ports:
+                                - '6379:6379'
+
+    docker-compose up -d redis
+
+    run_workers: 
+        python manage.py rqworker default
+
+    make query magic

@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'learning_app',
     'debug_toolbar',
+    'rest_framework',
+    'django_rq',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +142,21 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = "mail"  # change this to a proper location
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 465
+# EMAIL_USE_SSL = False
+# EMAIL_HOST_USER = 'meetrich499@gmail.com'
+
+RQ_QUEUES = {
+    'default': {
+        'HOST': 'localhost',
+        'PORT': 6379,
+        'DB': 0,
+        "DEFAULT_TIMEOUT": 360,
+    },
+}

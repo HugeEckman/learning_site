@@ -1,5 +1,6 @@
 newapp:
 	python manage.py startapp $(name)
+	# make newapp name=<app_name>
 
 runserver:
 	python manage.py runserver
@@ -27,6 +28,8 @@ db_init:
 	timeout 5 make migrate
 	make fill_db
 
+send_email:
+	python manage.py send_email
 
-
-
+run_workers:
+	python manage.py rqworker default

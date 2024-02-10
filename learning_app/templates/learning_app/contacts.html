@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-<!-- {% load static %} -->
 
 {% block title %}
     Contacts
@@ -13,6 +12,27 @@
         </p>    
     </div>
     
+    <form method="post"> 
+        {% csrf_token %} 
+        
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Receipt email address</label>
+            <input type="text" class="form-control" name="email" id="exampleFormControlInput1" placeholder="Receipt email address">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputSubject" class="form-label">Subject</label>
+            <input type="text" class="form-control" name="subject" id="exampleInputSubject">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+            <textarea class="form-control" name="message" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+
     <div>
         <p>
             <a href="{% url 'learning_app:index' %}">To main page</a>

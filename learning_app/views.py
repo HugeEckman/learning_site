@@ -2,13 +2,29 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Course, Category, Lesson, User
+from rest_framework.decorators import api_view
+from .tasks import send_email_to_admin, send_email_to_user
 
+import django_rq as rq
+import redis
 
 def index_view(request):
     return render(request, 'learning_app/index.html')
 
-
+@api_view(['GET', 'POST'])
 def contact_view(request):
+
+    if request.method == 'POST':
+        print(request.data['email'])
+        print(request.data['subject'])
+        print(request.data['message'])
+
+        redis_conn = redis.StrictRedis()
+        q = rq.get_queue(connection=redis_conn)
+
+        q.enqueue(send_email_to_user)
+        q.enqueue(send_email_to_admin)
+
     return render(request, 'learning_app/contacts.html')
 
 # Courses
