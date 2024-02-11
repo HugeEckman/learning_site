@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('learning_app.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
-    path('django-rq/', include('django_rq.urls'))
+    path('django-rq/', include('django_rq.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]

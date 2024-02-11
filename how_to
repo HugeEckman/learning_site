@@ -207,4 +207,26 @@
     run_workers: 
         python manage.py rqworker default
 
-    make query magic
+    make query magic:)
+
+25. install django rest framework
+
+    pip install djangorestframework
+    pip install markdown       # Markdown support for the browsable API.
+    pip install django-filter  # Filtering support
+
+    add to settings.py/INSTALLED_APPS section 
+        'rest_framework'
+
+    add to settings.py file next section
+        REST_FRAMEWORK = {
+            # Use Django's standard `django.contrib.auth` permissions,
+            # or allow read-only access for unauthenticated users.
+            'DEFAULT_PERMISSION_CLASSES': [
+                'rest_framework.permissions.AllowAny'
+            ]
+        }
+
+    add to root urls.py 
+        path('api-auth/', include('rest_framework.urls'))
+
