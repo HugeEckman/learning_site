@@ -3,8 +3,17 @@ from learning_app.models import *
 from .serialyzers import CourseModelSerializer, RoleModelSerializer, \
 CategoryModelSerializer, UserModelSerializer, LessonModelSerializer
 
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 
 class CourseViewSet(ModelViewSet):
+
+    autentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
     queryset = Course.objects.all()
     serializer_class = CourseModelSerializer
 

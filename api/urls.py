@@ -1,5 +1,5 @@
 from django.urls import path, include
-from rest_framework.routers import SimpleRouter, DefaultRouter
+from rest_framework.routers import DefaultRouter
 from .view_sets import CourseViewSet, RoleViewSet, CategoryViewSet, \
 UserViewSet, LessonViewSet
 
