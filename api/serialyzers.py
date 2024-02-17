@@ -7,10 +7,16 @@ class CourseModelSerializer(ModelSerializer):
         model = Course
         fields = '__all__'
 
-class RoleModelSerializer(ModelSerializer):
+# class RoleModelSerializer(ModelSerializer):
+
+#     class Meta:
+#         model = Role
+#         fields = '__all__'
+        
+class TeacherModelSerializer(ModelSerializer):
 
     class Meta:
-        model = Role
+        model = Teacher
         fields = '__all__'
 
 class CategoryModelSerializer(ModelSerializer):
@@ -29,4 +35,11 @@ class LessonModelSerializer(ModelSerializer):
 
     class Meta:
         model = Lesson
+        fields = '__all__'
+
+
+class TecherModelSerializer(ModelSerializer):
+
+    class Meta:
+        model = Teacher
         fields = '__all__'

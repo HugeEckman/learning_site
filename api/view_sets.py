@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from learning_app.models import *
-from .serialyzers import CourseModelSerializer, RoleModelSerializer, \
+from .serialyzers import CourseModelSerializer, TeacherModelSerializer, \
 CategoryModelSerializer, UserModelSerializer, LessonModelSerializer
 
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
@@ -17,9 +17,13 @@ class CourseViewSet(ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseModelSerializer
 
-class RoleViewSet(ModelViewSet):
-    queryset = Role.objects.all()
-    serializer_class = RoleModelSerializer
+# class RoleViewSet(ModelViewSet):
+#     queryset = Role.objects.all()
+#     serializer_class = RoleModelSerializer
+    
+class TeacherViewSet(ModelViewSet):
+    queryset = Teacher.objects.all()
+    serializer_class = TeacherModelSerializer
 
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
