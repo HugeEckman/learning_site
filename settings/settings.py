@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_rq',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -176,4 +177,8 @@ REST_FRAMEWORK = {
 
         # 'rest_framework.authentication.SessionAuthentication',
     ]
+}
+
+GRAPHENE = {
+    "SCHEMA": "api.schema.schema"
 }
