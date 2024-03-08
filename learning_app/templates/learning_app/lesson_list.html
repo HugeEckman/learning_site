@@ -7,11 +7,16 @@
 {% block body %}
  <h1>Lessons list</h1>
 
- {% for lesson in object.lesson %}
+ {% for lesson in lesson_list %}
     <h2>{{ lesson.title }}</h2>
    
  {% endfor  %}
 
+<div>
+    <p>
+        <a href="{% url 'learning_app:index' %}">To main page</a>
+    </p>
+</div>
 
 
 {% endblock %}

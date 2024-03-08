@@ -7,7 +7,7 @@
 
 {% block body %}
 
-<!-- <script src="{% static 'frontend/index.js'%}"></script> -->
+<script src="{% static 'frontend/index.js'%}"></script>
 
 <div>
     
@@ -24,6 +24,14 @@
 
     <div>
         <a href="{% url 'learning_app:category_list'%}">Categories</a>
+    </div>
+
+    <div>
+        <a href="{% url 'learning_app:user_list'%}">Users</a>
+    </div>
+
+    <div>
+        <a href="{% url 'learning_app:lesson_list'%}">Lessons</a>
     </div>
 
     <div>

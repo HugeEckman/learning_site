@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Users
+{% endblock %}
+
+{% block body %}
+ <h1>User list</h1>
+
+{% for user in user_list %}
+    <h2>{{ user.first_name}}</h2>
+{% endfor  %}
+
+<div>
+    <p>
+      <a href="{% url 'learning_app:index' %}">To main page</a>
+    </p>
+</div>
+
+
+{% endblock %}

@@ -102,7 +102,7 @@ class CategoryDeleteView(DeleteView):
 
 class LessonListView(ListView):
     model = Lesson
-    template_name = 'learning_app/lessons_list'
+    template_name = 'learning_app/lessons_list.html'
 
 
 class LessonDetailView(DetailView):
@@ -131,7 +131,7 @@ class LessonDeleteView(DeleteView):
 
 class UserListView(ListView):
     model = User
-    template_name = 'learning_app/user_list'
+    template_name = 'learning_app/user_list.html'
 
 
 class UserDetailView(DetailView):
