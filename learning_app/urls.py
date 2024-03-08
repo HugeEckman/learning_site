@@ -20,13 +20,13 @@ urlpatterns = [
     path('category/update/<int:pk>/', views.CategoryUpdateView.as_view(), name='category_update'),
     path('category/delete/<int:pk>/', views.CategoryDeleteView.as_view(), name='category_delete'),
 
-    path('lesson/list/<int:pk>', views.LessonListView.as_view(), name='lesson_list'),
+    path('lesson/list/', views.LessonListView.as_view(), name='lesson_list'),
     path('lesson/<int:pk>/', views.LessonDetailView.as_view(), name='lesson_detail'),
     path('lesson/create/', views.LessonCreateView.as_view(), name='lesson_create'),
     path('lesson/update/<int:pk>/', views.LessonUpdateView.as_view(), name='lesson_update'),
     path('lesson/delete/<int:pk>/', views.LessonDeleteView.as_view(), name='lesson_delete'),
 
-    path('user/list/<int:pk>', views.UserListView.as_view(), name='user_list'),
+    path('user/list/', views.UserListView.as_view(), name='user_list'),
     path('user/<int:pk>/', views.UserDetailView.as_view(), name='user_detail'),
     path('user/create/', views.UserCreateView.as_view(), name='user_create'),
     path('user/update/<int:pk>/', views.UserUpdateView.as_view(), name='user_update'),

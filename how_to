@@ -230,3 +230,19 @@
     add to root urls.py 
         path('api-auth/', include('rest_framework.urls'))
 
+26. work with frontend
+    create new app called frontend
+
+    add frontend in settings.py/INSTALLED_APPS
+
+    add STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] in settings.py
+
+    in static folder create new folder called frontend
+
+    set up webpack according to this instruction (https://gist.github.com/DanteOnline/501018d64e2ddbb2324121df9a94b7e5)
+
+    in template file turning on static files by {% load static %}
+
+    add ls file in to script attribute
+
+    

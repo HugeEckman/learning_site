@@ -14,6 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
 # Quick-start development settings - unsuitable for production
@@ -44,6 +45,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_rq',
     'graphene_django',
+    
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -167,8 +170,8 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        # 'rest_framework.permissions.AllowAny'
-        'rest_framework.permissions.IsAdminUser'
+        'rest_framework.permissions.AllowAny'
+        # 'rest_framework.permissions.IsAdminUser'
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
